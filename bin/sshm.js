@@ -99,7 +99,7 @@ program
 // =====================
 // OPEN
 // =====================
-
+console.log("Open connection")
 program
   .command("open <name>")
   .description("Open SSH connection")
