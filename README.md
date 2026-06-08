@@ -112,7 +112,7 @@ Get-WindowsCapability -Online | Where-Object Name -like 'OpenSSH.Client*'
 
 ---
 
-## Optional Dependency
+## Required Dependency
 
 Jika ingin login otomatis menggunakan password:
 
@@ -159,7 +159,7 @@ Disarankan menggunakan SSH Key Authentication.
 ### Clone Repository
 
 ```bash
-git clone https://github.com/yourusername/sshm.git
+git clone https://github.com/mdevSky/sshm.git
 cd sshm
 ```
 

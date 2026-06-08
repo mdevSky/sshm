@@ -6,6 +6,12 @@ import os from "os";
 import path from "path";
 import { spawn } from "child_process";
 import { json } from "stream/consumers";
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+const libDir = path.join(__dirname, "../lib");
 
 const program = new Command();
 
@@ -30,11 +36,11 @@ function loadConfig() {
 
 async function loadPlugins() {
   try {
-    const files = fs.readdirSync('../lib').filter(file => file.endsWith('.js'));
+    const files = fs.readdirSync(libDir).filter(file => file.endsWith('.js'));
     
     for (const file of files) {
         if (file.endsWith('.js')) {
-            const plugin = await import(`../lib/${file}`);
+            const plugin = await import(`${libDir}/${file}`);
             if(!globalThis.plugins) globalThis.plugins = {}
             globalThis.plugins[plugin.default.command] = plugin.default;
         }
